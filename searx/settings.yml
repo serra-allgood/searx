@@ -1,10 +1,10 @@
 general:
     debug : False # Debug mode, only for development
-    instance_name : "searx" # displayed name
+    instance_name : "Suddenly, Spiders!" # displayed name
 
 search:
     safe_search : 0 # Filter results. 0: None, 1: Moderate, 2: Strict
-    autocomplete : "" # Existing autocomplete backends: "dbpedia", "duckduckgo", "google", "startpage", "wikipedia" - leave blank to turn it off by default
+    autocomplete : "google" # Existing autocomplete backends: "dbpedia", "duckduckgo", "google", "startpage", "wikipedia" - leave blank to turn it off by default
     language : "en-US"
     ban_time_on_fail : 5 # ban time in seconds after engine errors
     max_ban_time_on_fail : 120 # max ban time in seconds after engine errors
@@ -13,9 +13,9 @@ server:
     port : 8888
     bind_address : "127.0.0.1" # address to listen on
     secret_key : "ultrasecretkey" # change this!
-    base_url : False # Set custom base_url. Possible values: False or "https://your.custom.host/location/"
-    image_proxy : False # Proxying image results through searx
-    http_protocol_version : "1.0"  # 1.0 and 1.1 are supported
+    base_url : "https://searx.spider.ink" # Set custom base_url. Possible values: False or "https://your.custom.host/location/"
+    image_proxy : True # Proxying image results through searx
+    http_protocol_version : "1.1"  # 1.0 and 1.1 are supported
 
 ui:
     static_path : "" # Custom static path - leave it blank if you didn't change
@@ -23,7 +23,7 @@ ui:
     default_theme : oscar # ui theme
     default_locale : "" # Default interface locale - leave blank to detect from browser information or use codes from the 'locales' config section
     theme_args :
-        oscar_style : logicodev # default style of oscar
+        oscar_style : pointhi # default style of oscar
 
 # searx supports result proxification using an external service: https://github.com/asciimoo/morty
 # uncomment below section if you have running morty proxy
@@ -186,13 +186,11 @@ engines:
   - name : duckduckgo
     engine : duckduckgo
     shortcut : ddg
-    disabled : True
 
   - name : duckduckgo images
     engine : duckduckgo_images
     shortcut : ddi
     timeout: 3.0
-    disabled : True
 
   - name : etymonline
     engine : xpath
@@ -420,7 +418,7 @@ engines:
     engine : nyaa
     shortcut : nt
     disabled : True
-  
+
   - name : acgsou
     engine : acgsou
     shortcut : acg
